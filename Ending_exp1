@@ -1,0 +1,19 @@
+import argparse
+
+
+def func(a, b, c):
+    if a < b < c:
+        raise ValueError('Не перемешано!')
+    elif sum((a, b, c)) == 42:
+        raise NameError('Это имя занято!')
+    else:
+        print('Претензий нет!')
+
+
+
+if __name__ == '__main__':
+
+   parser = argparse.ArgumentParser(description='My first argument parser')
+   parser.add_argument('numbers', metavar='N', type=int, nargs='*', help='press some numbers')
+   args = parser.parse_args()
+   print(func(*args.numbers))
